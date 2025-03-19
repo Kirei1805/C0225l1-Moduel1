@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>dien tich hinh tron</h1>
+<label for="radius">radius</label>
+<input type="number" id="radius">
+<script>
+  function Scircumference() {
+    let radius = document.getElementById("radius").value;
+    let S = Math.PI * radius * radius;
+    document.getElementById("value").innerText = "S :" + S;
+  }
+</script>
+<button onclick="Scircumference()"> Ket qua </button>
+<p id="value"></p>
+</body>
+</html>
