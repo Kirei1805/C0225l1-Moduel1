@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        function calculate(operator) {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result;
+
+            if (operator === 'addition') {
+                result = num1 + num2;
+            } else if (operator === 'subtraction') {
+                result = num1 - num2;
+            } else if (operator === 'multiplication') {
+                result = num1 * num2;
+            } else if (operator === 'division') {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    result = "Error: Division by 0 is not allowed";
+                }
+            }
+
+            document.getElementById('result').innerText = "Result: " + result;
+        }
+    </script>
+</head>
+<body>
+
+<h1>Calculator</h1>
+
+<form>
+    <input type="number" id="num1" placeholder="Enter first number" />
+    <input type="number" id="num2" placeholder="Enter second number" />
+
+    <button type="button" onclick="calculate('addition')">Addition (+)</button>
+    <button type="button" onclick="calculate('subtraction')">Subtraction (-)</button>
+    <button type="button" onclick="calculate('multiplication')">Multiplication (x)</button>
+    <button type="button" onclick="calculate('division')">Division (/)</button>
+</form>
+
+<p id="result">Result: </p>
+
+</body>
+</html>
