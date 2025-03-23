@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dien_tich_hinh_vuong</title>
+</head>
+<body>
+<label>nhap a</label>
+<input type = "number" id ="a">
+<br>
+<button onclick="dienTich()">dien tich hinh vuong</button>
+<p id="S"></p>
+    <script>
+      function dienTich(){
+        let a = parseFloat(document.getElementById("a").value);
+        if (isNaN(a) || a < 0) {
+          document.getElementById("a").innerText = "vui long nhap gia tri  hop le";
+        } else {
+          let S = a*a;
+          document.getElementById("S").innerText = S;
+        }
+      }
+    </script>
+</body>
+</html>

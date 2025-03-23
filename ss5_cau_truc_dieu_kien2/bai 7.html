@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giaiPTB2</title>
+</head>
+<body>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<input type="number" id="c" placeholder="Nhập c">
+<button onclick="giaiPTB2()">Giải</button>
+<p id="kq"></p>
+  <script>
+    function giaiPTB2() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+      let c = document.getElementById("c").value;
+      let ketqua = document.getElementById("kq");
+      if (a === 0) {
+        ketqua.innerText ="khong phai pt bac 2 "
+        return;
+      }
+      let denta = b * b - 4 * a * c;
+      if (denta < 0) {
+        let x = -2 * a * c;
+        ketqua.innerText = "pt co nghiem kep x =" + x;
+      } else {
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      ketqua.innerText = "pt co 2 nghiem phan biet " + "x1 = "+  x1 + "x2" + x2;
+      }
+    }
+
+  </script>
+
+</body>
+</html>

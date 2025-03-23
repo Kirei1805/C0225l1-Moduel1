@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tam_Giac_Vuong</title>
+</head>
+<body>
+ <label>NHAP A:</label>
+ <input type = "number" id ="a">
+<label >NHAP B:</label>
+<input type = "number" id ="b">
+ <button onclick="dienTich()">ket qua</button>
+ <p id="loi"></p>
+ <p id="ketqua" style="color: red;"></p>
+<script>
+  function dienTich(){
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let loi = document.getElementById("loi")
+    let ketqua = document.getElementById("ketqua")
+    loi.innerText = ""
+    ketqua.innerText = ""
+
+      if (isNaN(a) || a < 0 || isNaN(b) || b < 0 ) {
+        loi.innerText = "nhap sai so roi be iu ";
+      }
+      else {
+        let s = 1/2 *a *b
+        ketqua.innerText = "ra ket qua ne be iu " + s;
+      }
+  }
+</script>
+</body>
+</html>

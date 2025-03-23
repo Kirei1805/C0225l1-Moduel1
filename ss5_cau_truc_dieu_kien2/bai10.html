@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function tinhGiaDien() {
+            var soKWh = parseFloat(prompt("Nhập số điện tiêu thụ (kWh): "));
+
+            if (isNaN(soKWh) || soKWh < 0) {
+                alert("Vui lòng nhập số điện hợp lệ.");
+            } else {
+                var giaDien;
+                var tienDien = 0;
+
+                if (soKWh <= 50) {
+                    tienDien = soKWh * 1678;
+                } else if (soKWh <= 100) {
+                    tienDien = 50 * 1678 + (soKWh - 50) * 1734;
+                } else if (soKWh <= 200) {
+                    tienDien = 50 * 1678 + 50 * 1734 + (soKWh - 100) * 2014;
+                } else if (soKWh <= 300) {
+                    tienDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (soKWh - 200) * 2536;
+                } else {
+                    tienDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (soKWh - 300) * 2834;
+                }
+
+                alert("Số tiền điện bạn phải trả là: " + tienDien.toFixed(2) + " VND");
+            }
+        }
+
+        tinhGiaDien();
+
+    </script>
+</body>
+</html>

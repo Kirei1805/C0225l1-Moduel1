@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>,
+<input type="number" id="a1" placeholder="Nhập a">
+<input type="number" id="b1" placeholder="Nhập b">
+<button onclick="giaiPTB1()">Giải</button>
+<p id="ketqua1"></p>
+
+<script>
+  function giaiPTB1() {
+    let a = parseFloat(document.getElementById("a1").value);
+    let b = parseFloat(document.getElementById("b1").value);
+    let kq = document.getElementById("ketqua1");
+
+    if (isNaN(a) || isNaN(b)) {
+      kq.innerText = "Nhập số hợp lệ!";
+      return;
+    }
+
+    if (a === 0) {
+      kq.innerText = b === 0 ? "Phương trình vô số nghiệm" : "Phương trình vô nghiệm";
+    } else {
+      let x = -b / a;
+      kq.innerText = "Nghiệm x = " + x.toFixed(2);
+    }
+  }
+</script>
+
+</body>
+</html>

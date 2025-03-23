@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function kiemTraTuoi() {
+        var tuoi = prompt("Nhập tuổi: ");
+        tuoi = parseInt(tuoi);
+
+        if (isNaN(tuoi)) {
+            alert("Vui lòng nhập một số hợp lệ.");
+        } else if (tuoi > 0 && tuoi < 120) {
+            alert("Đây là tuổi hợp lệ.");
+        } else {
+            alert("Tuổi không hợp lệ. Vui lòng nhập một số lớn hơn 0 và nhỏ hơn 120.");
+        }
+    }
+
+    kiemTraTuoi();
+
+</script>
+</body>
+</html>

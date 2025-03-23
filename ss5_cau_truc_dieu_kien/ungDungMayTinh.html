@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="calculator">
+  <input type="text" id="screen" class="screen" disabled>
+  <div>
+    <button class="button" onclick="appendNumber(1)">1</button>
+    <button class="button" onclick="appendNumber(2)">2</button>
+    <button class="button" onclick="appendNumber(3)">3</button>
+    <button class="button operator" onclick="appendOperator('+')">+</button>
+  </div>
+  <div>
+    <button class="button" onclick="appendNumber(4)">4</button>
+    <button class="button" onclick="appendNumber(5)">5</button>
+    <button class="button" onclick="appendNumber(6)">6</button>
+    <button class="button operator" onclick="appendOperator('-')">-</button>
+  </div>
+  <div>
+    <button class="button" onclick="appendNumber(7)">7</button>
+    <button class="button" onclick="appendNumber(8)">8</button>
+    <button class="button" onclick="appendNumber(9)">9</button>
+    <button class="button operator" onclick="appendOperator('*')">*</button>
+  </div>
+  <div>
+    <button class="button" onclick="appendNumber(0)">0</button>
+    <button class="button" onclick="clearScreen()">C</button>
+    <button class="button" onclick="calculateResult()">=</button>
+    <button class="button operator" onclick="appendOperator('/')">/</button>
+  </div>
+</div>
+
+<script>
+  let currentInput = '';
+  let operator = '';
+  let previousInput = '';
+
+  function appendNumber(number) {
+    currentInput += number;
+    updateScreen(currentInput);
+  }
+
+  function appendOperator(op) {
+    if (currentInput === '') return;
+    previousInput = currentInput;
+    currentInput = '';
+    operator = op;
+  }
+
+  function clearScreen() {
+    currentInput = '';
+    operator = '';
+    previousInput = '';
+    updateScreen(currentInput);
+  }
+
+  function calculateResult() {
+    if (currentInput === '' || previousInput === '') return;
+    let result;
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+    switch (operator) {
+      case '+':
+        result = prev + current;
+        break;
+      case '-':
+        result = prev - current;
+        break;
+      case '*':
+        result = prev * current;
+        break;
+      case '/':
+        if (current === 0) {
+          result = 'Error';
+        } else {
+          result = prev / current;
+        }
+        break;
+    }
+    currentInput = result.toString();
+    operator = '';
+    previousInput = '';
+    updateScreen(currentInput);
+  }
+
+  function updateScreen(value) {
+    document.getElementById('screen').value = value;
+  }
+</script>
+</body>
+</html>

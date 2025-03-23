@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính hoa hồng</title>
+</head>
+<body>
+
+<h2>Tính Hoa Hồng</h2>
+
+<label for="doanhso">Doanh số (VNĐ): </label>
+<input type="number" id="doanhso" placeholder="Nhập doanh số"><br><br>
+
+<label for="tyle">Tỷ lệ hoa hồng (%): </label>
+<input type="number" id="tyle" placeholder="Nhập tỷ lệ %"><br><br>
+
+<button onclick="tonghoahong()">Tính hoa hồng</button><br><br>
+
+<label for="hoahong">Hoa hồng (VNĐ): </label>
+<input type="text" id="hoahong" readonly>
+
+<script>
+    function tonghoahong(){
+        let doanhso = parseFloat(document.getElementById("doanhso").value);
+        let tyle = parseFloat(document.getElementById("tyle").value);
+
+        let hoahong = doanhso * (tyle / 100);
+        document.getElementById("hoahong").value = hoahong.toLocaleString('vi-VN') + " VNĐ";
+    }
+</script>
+
+</body>
+</html>

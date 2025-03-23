@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhap m:</label>
+<input  type="number" id="m" placeholder="Nhap m"><br><br>
+<button onclick="myFunction()" > doi sang ft </button>
+<p id="ft"></p>
+    <script>
+      function myFunction() {
+        let m = parseFloat(document.getElementById("m").value);
+        if (isNaN(m) || m < 0) {
+          document.getElementById("ft").innerText = "Vui long nhap gia tri  hop le";
+          return;
+        } else {
+          let ft = m  * 3.2808;
+          document.getElementById("ft").innerText  = ft.toFixed(2);
+        }
+      }
+    </script>
+
+</body>
+</html>

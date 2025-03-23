@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    function tinhThueThuNhap() {
+      var thuNhapThang = parseFloat(prompt("Nhập thu nhập tháng (VND): "));
+      var soNguoiPhuThuoc = parseInt(prompt("Nhập số người phụ thuộc: "));
+
+      // Giảm trừ gia cảnh
+      var giamTruBanThan = 11000000;  // Giảm trừ bản thân
+      var giamTruNguoiPhuThuoc = soNguoiPhuThuoc * 4400000;  // Giảm trừ cho mỗi người phụ thuộc
+
+      if (isNaN(thuNhapThang) || isNaN(soNguoiPhuThuoc) || thuNhapThang < 0 || soNguoiPhuThuoc < 0) {
+        alert("Vui lòng nhập thông tin hợp lệ.");
+      } else {
+        // Tính thu nhập tính thuế
+        var thuNhapTinhThue = thuNhapThang - giamTruBanThan - giamTruNguoiPhuThuoc;
+
+        if (thuNhapTinhThue <= 0) {
+          alert("Không phải đóng thuế.");
+        } else {
+          var thue;
+          if (thuNhapTinhThue <= 5000000) {
+            thue = thuNhapTinhThue * 0.05;
+          } else if (thuNhapTinhThue <= 10000000) {
+            thue = 5000000 * 0.05 + (thuNhapTinhThue - 5000000) * 0.10;
+          } else if (thuNhapTinhThue <= 18000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.10 + (thuNhapTinhThue - 10000000) * 0.15;
+          } else if (thuNhapTinhThue <= 32000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 + (thuNhapTinhThue - 18000000) * 0.20;
+          } else if (thuNhapTinhThue <= 52000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 + 14000000 * 0.20 + (thuNhapTinhThue - 32000000) * 0.25;
+          } else if (thuNhapTinhThue <= 80000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 + 14000000 * 0.20 + 20000000 * 0.25 + (thuNhapTinhThue - 52000000) * 0.30;
+          } else {
+            thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 + 14000000 * 0.20 + 20000000 * 0.25 + 28000000 * 0.30 + (thuNhapTinhThue - 80000000) * 0.35;
+          }
+
+          alert("Thuế thu nhập cá nhân phải nộp là: " + thue.toFixed(2) + " VND");
+        }
+      }
+    }
+
+    tinhThueThuNhap();
+
+  </script>
+</body>
+</html>
