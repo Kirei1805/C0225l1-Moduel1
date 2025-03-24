@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <script>
+      let  fib = [0,1];
+      let i = 2 ;
+      while (true) {
+        fib[i] = fib[i-1] + fib[i-2];
+        if (fib[i]%5===0){
+          document.write("fibonacci dau tien chia het cho 5 la : " + fib[i]);
+          break;
+        }
+          i++;
+      }
+    </script>
+
+</body>
+</html>
