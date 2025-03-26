@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In hình chữ nhật</title>
+</head>
+<body>
+<div id="rectangle"></div>
+
+<script>
+  function printRectangle(width, height) {
+    let output = '';
+    for (let i = 1; i <= height; i++) {
+      let row = "";
+      for (let j = 1; j <= width; j++) {
+        if (i === 1 || i === height || j === 1 || j === width) {
+          row +=   '*';
+        } else {
+          row += "&nbsp;&nbsp;";
+        }
+      }
+      output += row + '<br>';
+    }
+    document.getElementById('rectangle').innerHTML = output;
+  }
+
+  printRectangle(10, 5);
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In tam giác vuông</title>
+</head>
+<body>
+<script>
+  // Tam giác vuông góc trên bên trái
+  function tamGiacPhai(n) {
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+      for (let j = 1; j <= i; j++) {
+        row += '*';
+      }
+      document.write(row + '<br>');
+    }
+  }
+
+  // Tam giác vuông góc dưới bên phải
+  function triangleBottomRight(n) {
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+      for (let j = 1; j <= i; j++) {
+        row += ' ';
+      }
+      for (let k = 1; k <= n - i + 1; k++) {
+        row += '*';
+      }
+      document.write(row + '<br>');
+    }
+  }
+
+  // Tam giác vuông góc dưới bên trái
+  function triangleBottomLeft(n) {
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+      for (let j = 1; j <= n - i; j++) {
+        row += ' &nbsp; ';
+      }
+      for (let k = 1; k <= i; k++) {
+        row += '*';
+      }
+      document.write(row + '<br>');
+    }
+  }
+
+  // Tam giác vuông góc trên bên phải
+  function tamGiacTrai(n) {
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+      for (let j = 1; j <= i; j++) {
+        row += ' &nbsp;';
+      }
+      for (let k = 1; k <= n - i + 1; k++) {
+        row += '*';
+      }
+      document.write(row + '<br>');
+    }
+  }
+
+  tamGiacPhai(5);
+
+  triangleBottomRight(5);
+
+  triangleBottomLeft(5);
+
+  tamGiacTrai(5);
+</script>
+</body>
+</html>
