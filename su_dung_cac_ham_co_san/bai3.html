@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let kiTu = 'The Quick Brown Fox';
+  let result = [];
+  for (let i = 0; i < kiTu.length; i++) {
+    if (kiTu[i].charCodeAt(0) >= 65 && kiTu[i].charCodeAt(0) <= 90) {
+      result.push(kiTu[i].toLowerCase());
+    } else if (kiTu[i].charCodeAt(0) >= 97 && kiTu[i].charCodeAt(0) <= 122) {
+      result.push(kiTu[i].toUpperCase());
+    } else {
+      result.push(kiTu[i]);
+    }
+  }
+  document.write(result.join(''));
+</script>
+</body>
+</html>

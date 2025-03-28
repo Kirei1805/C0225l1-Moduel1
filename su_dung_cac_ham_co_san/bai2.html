@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let ham1 = "025468";
+  let ham2 = ham1.split("");
+  let result = [ham2[0]];
+
+    for (let i = 1; i < ham2.length; i++) {
+      if (ham2[i - 1] % 2 === 0 && ham2[i] % 2 === 0) {
+        result += "-" + ham2[i];
+      } else {
+        result += ham2[i];
+      }
+    }
+    document.write(result);
+</script>
+</body>
+</html>
