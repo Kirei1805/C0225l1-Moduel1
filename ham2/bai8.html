@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đảo ngược mảng</title>
+</head>
+<body>
+
+<h2>Đảo ngược mảng số nguyên</h2>
+
+<script>
+  function reverseArray(arr) {
+    return arr.reverse();
+  }
+
+  const inputArray = prompt("Nhập mảng số nguyên, cách nhau bởi dấu phẩy (ví dụ: 1, 2, 3, 4)").split(",").map(Number);
+
+  const reversedArray = reverseArray(inputArray);
+
+  alert(`Mảng sau khi đảo ngược: ${reversedArray.join(", ")}`);
+</script>
+
+</body>
+</html>

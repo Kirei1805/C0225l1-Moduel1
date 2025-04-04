@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>So sánh và tính tổng</title>
+</head>
+<body>
+
+<h2>Nhập hai tham số để kiểm tra</h2>
+
+<script>
+  function compareAndSum(a, b) {
+    if (a > b) {
+      alert("Giá trị của tham số thứ nhất lớn hơn tham số thứ hai!");
+    } else {
+      return a + b;
+    }
+  }
+
+  const firstValue = parseFloat(prompt("Nhập giá trị tham số thứ nhất:"));
+  const secondValue = parseFloat(prompt("Nhập giá trị tham số thứ hai:"));
+
+  const result = compareAndSum(firstValue, secondValue);
+
+  if (result !== undefined) {
+    document.write("Tổng của hai tham số là: " + result);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm giá trị lớn nhất và trung bình của mảng</title>
+</head>
+<body>
+
+<h2>Tìm giá trị lớn nhất và trung bình của mảng</h2>
+
+<script>
+  const numbers = [15, 27, 8, 42, 34, 56, 23, 89, 11, 50];
+  let maxValue = numbers[0];
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > maxValue) {
+      maxValue = numbers[i];
+    }
+    sum += numbers[i];
+  }
+
+  const average = sum / numbers.length;
+
+  alert(`Giá trị lớn nhất trong mảng là ${maxValue}.`);
+  alert(`Giá trị trung bình của các phần tử trong mảng là ${average.toFixed(2)}.`);
+</script>
+
+</body>
+</html>

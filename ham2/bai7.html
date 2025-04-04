@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đổi chỗ hai số nguyên</title>
+</head>
+<body>
+
+<h2>Đổi chỗ hai số nguyên</h2>
+
+<script>
+  function swapNumbers(a, b) {
+    let temp = a;
+    a = b;
+    b = temp;
+
+    return [a, b];
+  }
+
+  let num1 = parseInt(prompt("Nhập số thứ nhất:"));
+  let num2 = parseInt(prompt("Nhập số thứ hai:"));
+
+  let swappedNumbers = swapNumbers(num1, num2);
+
+  alert(`Sau khi đổi chỗ: Số thứ nhất = ${swappedNumbers[0]}, Số thứ hai = ${swappedNumbers[1]}`);
+</script>
+
+</body>
+</html>

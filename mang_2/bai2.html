@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính diện tích và chu vi hình tròn</title>
+</head>
+<body>
+
+<h2>Tính diện tích và chu vi hình tròn</h2>
+
+<script>
+  function areaOfCircle(radius) {
+    return Math.PI * radius * radius;
+  }
+
+  function perimeterOfCircle(radius) {
+    return 2 * Math.PI * radius;
+  }
+
+  const radius = 7;
+
+  const area = areaOfCircle(radius);
+  const perimeter = perimeterOfCircle(radius);
+
+  alert(`Diện tích hình tròn có bán kính ${radius} là ${area.toFixed(2)}`);
+  alert(`Chu vi hình tròn có bán kính ${radius} là ${perimeter.toFixed(2)}`);
+</script>
+
+</body>
+</html>

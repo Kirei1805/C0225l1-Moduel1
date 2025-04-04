@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra ký tự trong mảng</title>
+</head>
+<body>
+
+<h2>Kiểm tra ký tự trong mảng</h2>
+
+<script>
+  function checkCharacterInArray(arr, char) {
+    const count = arr.filter(c => c === char).length; 
+    return count > 0 ? count : -1;
+  }
+
+  const inputArray = prompt("Nhập mảng ký tự, cách nhau bởi dấu phẩy (ví dụ: a, b, c, a, d)").split(",").map(c => c.trim());
+
+  const charToCheck = prompt("Nhập ký tự cần kiểm tra:");
+
+  const result = checkCharacterInArray(inputArray, charToCheck);
+
+  if (result === -1) {
+    alert(`Ký tự "${charToCheck}" không có trong mảng.`);
+  } else {
+    alert(`Ký tự "${charToCheck}" xuất hiện ${result} lần trong mảng.`);
+  }
+</script>
+
+</body>
+</html>

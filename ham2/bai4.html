@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra ký tự số</title>
+</head>
+<body>
+
+<h2>Kiểm tra ký tự số</h2>
+
+<script>
+  function isNumber(character) {
+    return !isNaN(character) && character.trim() !== '';
+  }
+
+  const input = prompt("Nhập một ký tự để kiểm tra:");
+
+  if (isNumber(input)) {
+    alert(`"${input}" là một ký tự số.`);
+  } else {
+    alert(`"${input}" không phải là ký tự số.`);
+  }
+</script>
+
+</body>
+</html>

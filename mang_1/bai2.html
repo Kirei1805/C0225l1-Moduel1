@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm phần tử lớn nhất trong mảng</title>
+</head>
+<body>
+
+<h2>Tìm phần tử lớn nhất trong mảng</h2>
+
+<script>
+  const numbers = [15, 27, 8, 42, 34, 56, 23, 89, 11, 50];
+  let maxValue = numbers[0];
+  let maxIndex = 0;
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > maxValue) {
+      maxValue = numbers[i];
+      maxIndex = i;
+    }
+  }
+  alert(`Phần tử lớn nhất trong mảng là ${maxValue} và nằm ở vị trí ${maxIndex}.`);
+</script>
+
+</body>
+</html>

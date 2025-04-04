@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đếm số nguyên âm trong chuỗi</title>
+</head>
+<body>
+
+<h2>Đếm số nguyên âm trong chuỗi</h2>
+
+<script>
+  const input = prompt("Nhập một chuỗi gồm các số nguyên, cách nhau bởi dấu cách (ví dụ: 1 -3 4 -7 5):");
+
+  const numbers = input.split(" ").map(Number);
+
+  let negativeCount = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < 0) {
+      negativeCount++;
+    }
+  }
+  alert(`Số lượng số nguyên âm trong chuỗi là: ${negativeCount}`);
+</script>
+
+</body>
+</html>

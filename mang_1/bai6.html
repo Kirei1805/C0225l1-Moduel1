@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra phần tử trong mảng</title>
+</head>
+<body>
+
+<h2>Kiểm tra phần tử có trong mảng</h2>
+
+<script>
+  const numbers = [15, 27, 8, 42, 34, 56, 23, 89, 11, 50];
+
+  const V = parseInt(prompt("Nhập phần tử số nguyên V:"));
+
+  if (numbers.includes(V)) {
+    alert(`"${V}" is in the array.`);
+  } else {
+    alert(`"${V}" is not in the array.`);
+  }
+</script>
+
+</body>
+</html>

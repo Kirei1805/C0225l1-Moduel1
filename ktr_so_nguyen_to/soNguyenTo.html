@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+
+  function isPrime(number) {
+    if (number <= 1) return false;
+    if (number === 2) return true;
+    if (number % 2 === 0) return false;
+
+    for (let i = 3; i <= Math.sqrt(number); i += 2) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const numberToCheck = parseInt(prompt("Nhập một số để kiểm tra có phải là số nguyên tố không:"));
+
+  if (isPrime(numberToCheck)) {
+    alert(`${numberToCheck} là số nguyên tố.`);
+  } else {
+    alert(`${numberToCheck} không phải là số nguyên tố.`);
+  }
+</script>
+
+</body>
+</html>

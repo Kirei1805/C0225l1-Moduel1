@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm kiếm từ vựng</title>
+</head>
+<body>
+
+<h2>Tìm kiếm từ vựng</h2>
+
+<form id="searchForm">
+  <label for="searchInput">Nhập từ tiếng Anh:</label>
+  <input type="text" id="searchInput" required>
+  <button type="submit">Tìm kiếm</button>
+</form>
+
+<div class="result" id="result"></div>
+
+<script>
+  const englishWords = ["apple", "banana", "orange", "cat", "dog"];
+  const vietnameseWords = ["táo", "chuối", "cam", "mèo", "chó"];
+
+  document.getElementById("searchForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
+    const index = englishWords.indexOf(searchTerm);
+
+    const resultDiv = document.getElementById("result");
+
+    if (index !== -1) {
+      resultDiv.textContent = `Từ tiếng Việt tương ứng: ${vietnameseWords[index]}`;
+    } else {
+      resultDiv.textContent = "Không tìm thấy";
+    }
+  });
+</script>
+
+</body>
+</html>

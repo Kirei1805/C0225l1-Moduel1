@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm số lớn hơn hoặc bằng 10</title>
+</head>
+<body>
+
+<h2>Đếm số nguyên lớn hơn hoặc bằng 10</h2>
+
+<script>
+    const numbers = [5, 12, 8, 20, 15, 3, 10, 7, 25, 13];
+
+    let count = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+            count++;
+        }
+    }
+
+    alert(`Có ${count} số nguyên lớn hơn hoặc bằng 10.`);
+</script>
+
+</body>
+</html>

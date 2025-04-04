@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm số nguyên nhỏ nhất</title>
+</head>
+<body>
+
+<h2>Tìm số nguyên nhỏ nhất trong ba số</h2>
+
+<script>
+  function findSmallestNumber(a, b, c) {
+    return Math.min(a, b, c);
+  }
+
+  const num1 = parseInt(prompt("Nhập số thứ nhất:"));
+  const num2 = parseInt(prompt("Nhập số thứ hai:"));
+  const num3 = parseInt(prompt("Nhập số thứ ba:"));
+
+  const smallest = findSmallestNumber(num1, num2, num3);
+
+  alert(`Số nguyên nhỏ nhất trong ba số ${num1}, ${num2}, ${num3} là ${smallest}`);
+</script>
+
+</body>
+</html>
