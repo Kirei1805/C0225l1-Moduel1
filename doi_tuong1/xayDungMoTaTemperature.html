@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Conversion</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+
+        getCtoF() {
+            return this.celsius * 1.8 + 32;
+        }
+
+        getCtoK() {
+            return this.celsius + 273.15;
+        }
+    }
+
+    var temp = new Temperature(25);
+
+    document.writeln("Nhiệt độ " + temp.celsius + "°C tương đương với:<br>");
+    document.writeln("Fahrenheit: " + temp.getCtoF() + "°F <br>");
+    document.writeln("Kelvin: " + temp.getCtoK() + "K");
+</script>
+</body>
+</html>
