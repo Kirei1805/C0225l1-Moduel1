@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let foot = parseFloat(prompt("chọn bài bạn muốn làm ( số 1 là tính thuế , số 2 là kiểm tra kí tự ) : "));
+    switch (foot) {
+        case 1:
+            let c = parseFloat(prompt("Mời bạn nhập lương của bạn: "))
+            if(c>= 15000000){
+                sum= c*0.2;
+            } else if (c<15000000 && c>=700000){
+                sum= c*0.1;
+            } else c*0.05;
+            let sum2 = c - sum;
+            document.write( "luong ban dau :" + sum + "<br>" + "luong sau khi bi tru thue :  " + sum2  );
+            break;
+        case 2:
+            let char = prompt("Mời bạn nhập kí tự : ");
+            char = char.toLowerCase();
+            if (char.length === 1 && /[a-z]/.test(char)) {
+                switch (char) {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u':
+                        document.write( char + " là nguyên âm ");
+                        break;
+                    default:
+                        document.write( char +  " là phụ âm ");
+                }
+            }
+    }
+</script>
+</body>
+</html>

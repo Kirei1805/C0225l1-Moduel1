@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu lựa chọn bài</title>
+</head>
+<body>
+<script>
+  let foot = prompt("Mời bạn chọn bài bạn muốn: (1, 2, 3 hoặc 4 nha <3)");
+
+  function prefixSums(a) {
+    let b = [];
+    let currentSum = 0;
+    for (let i = 0; i < a.length; i++) {
+      currentSum += a[i];
+      b.push(currentSum);
+    }
+    return b;
+  }
+
+  function missingValue(A, B) {
+    let setA = new Set(A);
+    let setB = new Set(B);
+    let result = [...setB].filter(x => !setA.has(x));
+    result.sort((a, b) => a - b);
+    return result;
+  }
+
+  function maxFraction(numerators, denominators) {
+    let maxIndex = 0;
+    let maxValue = numerators[0] / denominators[0];
+    for (let i = 1; i < numerators.length; i++) {
+      let value = numerators[i] / denominators[i];
+      if (value > maxValue) {
+        maxValue = value;
+        maxIndex = i;
+      }
+    }
+    return maxIndex;
+  }
+
+  switch (foot) {
+    case "1":
+      let input = prompt("Nhập các số nguyên cách nhau bằng dấu phẩy (vd: 1,2,3):");
+      let a = input.split(",").map(Number);
+      let b = prefixSums(a);
+      document.write("Tổng tích lũy là: " + b);
+      break;
+
+    case "2":
+      let inputA = prompt("Nhập mảng A:");
+      let inputB = prompt("Nhập mảng B:");
+      let A = inputA.split(',').map(Number);
+      let B = inputB.split(',').map(Number);
+      let result1 = missingValue(A, B);
+      alert("Các giá trị có trong B mà không có trong A là: " + result1);
+      break;
+
+    case "3":
+      let numeratorsInput = prompt("Nhập tử số, cách nhau bằng dấu phẩy:");
+      let denominatorsInput = prompt("Nhập mẫu số, cách nhau bằng dấu phẩy:");
+      let numerators = numeratorsInput.split(',').map(Number);
+      let denominators = denominatorsInput.split(',').map(Number);
+      let result = maxFraction(numerators, denominators);
+      alert("Chỉ số phân số lớn nhất là: " + result);
+      break;
+
+    case "4":
+      let total = 0;
+      let choice = 0;
+      do {
+        choice = parseInt(prompt("Mời bạn chọn món (1-7):\n" +
+                "1. Cafe đậm hương vị chồn (25,000 VND)\n" +
+                "2. Nước cam có vị chua (15,000 VND)\n" +
+                "3. Nước ép cà rốt đậm hương vị thỏ (15,000 VND)\n" +
+                "4. Nước ép cà chua (15,000 VND)\n" +
+                "5. Nước lọc (10,000 VND)\n" +
+                "6. Nước dừa (35,000 VND)\n" +
+                "7. Thoát gọi món"));
+
+        if (choice >= 1 && choice <= 6) {
+          let drinkName = "";
+          let price = 0;
+          switch (choice) {
+            case 1: drinkName = "Cafe"; price = 25000; break;
+            case 2: drinkName = "Nước cam"; price = 15000; break;
+            case 3: drinkName = "Cà rốt"; price = 15000; break;
+            case 4: drinkName = "Cà chua"; price = 15000; break;
+            case 5: drinkName = "Nước lọc"; price = 10000; break;
+            case 6: drinkName = "Nước dừa"; price = 35000; break;
+          }
+
+          let quantity = parseInt(prompt(`Bạn chọn ${drinkName}. Nhập số lượng:`));
+          if (quantity > 0) {
+            let cost = quantity * price;
+            total += cost;
+            document.write(`Bạn chọn ${drinkName} (${quantity} ly). Thành tiền: ${cost} VND<br>`);
+          } else {
+            alert("Số lượng không hợp lệ!");
+          }
+
+        } else if (choice === 7) {
+          document.write(`Tổng cộng: ${total} VND<br>`);
+          alert("Cảm ơn bạn đã sử dụng dịch vụ!");
+        } else {
+          alert("Lựa chọn không hợp lệ!");
+        }
+      } while (choice !== 7);
+      break;
+
+    default:
+      alert("Lựa chọn không hợp lệ. Chỉ được chọn từ 1 đến 4 nha!");
+  }
+</script>
+</body>
+</html>

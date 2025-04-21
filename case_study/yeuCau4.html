@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function chuanHoaXau(str) {
+        return str.trim().split(/\s+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    }
+
+    function tuDaiNhat(str) {
+        let words = str.trim().split(/\s+/);
+        let maxWord = words[0];
+        for (let word of words) {
+            if (word.length > maxWord.length) {
+                maxWord = word;
+            }
+        }
+        return maxWord;
+    }
+
+    function bai1() {
+        let input = prompt("Nhập xâu ký tự cần chuẩn hóa:");
+        alert("Xâu ban đầu: " + input);
+
+        let chuanHoa = chuanHoaXau(input);
+        alert("Xâu sau khi chuẩn hóa: " + chuanHoa);
+
+        let daiNhat = tuDaiNhat(chuanHoa);
+        alert("Từ dài nhất là: " + daiNhat);
+    }
+
+    function differentSymbolsNaive(s) {
+        let set = new Set(s);
+        return set.size;
+    }
+
+    function bai2() {
+        let s = prompt("Nhập xâu để đếm số ký tự khác nhau:");
+        let count = differentSymbolsNaive(s);
+        alert(`Số ký tự khác nhau là: ${count}`);
+    }
+
+    function commonCharacterCount(s1, s2) {
+        let count = 0;
+        let arr1 = s1.split('');
+        let arr2 = s2.split('');
+
+        for (let char of arr1) {
+            let index = arr2.indexOf(char);
+            if (index !== -1) {
+                count++;
+                arr2.splice(index, 1);
+            }
+        }
+        return count;
+    }
+
+    function bai3() {
+        let s1 = prompt("Nhập xâu 1:");
+        let s2 = prompt("Nhập xâu 2:");
+        let result = commonCharacterCount(s1, s2);
+        alert(`Số ký tự chung giữa hai xâu là: ${result}`);
+    }
+    let menu = prompt("Chọn bài muốn chạy: (1, 2, hoặc 3)");
+
+    switch (menu) {
+        case "1":
+            bai1();
+            break;
+        case "2":
+            bai2();
+            break;
+        case "3":
+            bai3();
+            break;
+        default:
+            alert("Lựa chọn không hợp lệ!");
+    }
+
+
+
+</script>
+</body>
+</html>
