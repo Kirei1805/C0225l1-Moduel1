@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý học viên CODEGYM</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    button { padding: 8px 12px; margin: 5px; cursor: pointer; }
+    input { margin: 5px; padding: 5px; width: 200px; }
+    .form-container { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+<h1>Quản lý học viên CODEGYM</h1>
+<div class="form-container">
+  <h2 id="formTitle">Thêm học viên mới</h2>
+  <input id="ma" placeholder="Mã học viên (HV-XXXX)" required><br>
+  <input id="ten" placeholder="Tên học viên" required><br>
+  <input id="lop" placeholder="Lớp" required><br>
+  <input id="email" placeholder="Email (@gmail.com)" required><br>
+  <input id="ngaySinh" placeholder="Ngày sinh (dd/mm/yyyy)" required><br>
+  <input id="module" type="number" placeholder="Module (1-6)" min="1" max="6" required><br>
+  <button id="addButton" onclick="add()">Thêm</button>
+  <button id="editButton" onclick="showEditForm()">Sửa</button>
+  <button id="cancelButton" onclick="resetForm()" style="display: none;">Hủy</button>
+</div>
+<h2>Danh sách học viên</h2>
+<p id="display"></p>
+
+<script>
+  class HocVien {
+    constructor(ma, ten, lop, email, ngaySinh, module) {
+      this.ma = ma;
+      this.ten = ten;
+      this.lop = lop;
+      this.email = email;
+      this.ngaySinh = ngaySinh;
+      this.module = module;
+    }
+
+    validate() {
+      const maRegex = /^HV-\d{4}$/;
+      const ngaySinhRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+      if (!maRegex.test(this.ma)) return "Mã học viên không hợp lệ (HV-XXXX)";
+      if (this.ten.length > 50) return "Tên học viên không được vượt quá 50 ký tự";
+      if (!emailRegex.test(this.email)) return "Email phải có định dạng @gmail.com";
+      if (!ngaySinhRegex.test(this.ngaySinh)) return "Ngày sinh không đúng định dạng (dd/mm/yyyy)";
+      if (isNaN(this.module) || this.module < 1 || this.module > 6) return "Module phải từ 1 đến 6";
+      return "";
+    }
+  }
+
+  let danhSachHocVien = [
+    new HocVien("HV-0001", "Nguyễn Văn A", "C01", "nva@gmail.com", "01/01/2000", 1),
+    new HocVien("HV-0002", "Trần Thị B", "C02", "ttb@gmail.com", "02/02/2001", 2),
+    new HocVien("HV-0003", "Lê Văn C", "C01", "lvc@gmail.com", "03/03/1999", 3),
+  ];
+
+  display();
+
+  function display() {
+    let tableString = `<table>
+                        <tr>
+                          <th>STT</th>
+                          <th>Mã học viên</th>
+                          <th>Tên</th>
+                          <th>Lớp</th>
+                          <th>Email</th>
+                          <th>Ngày sinh</th>
+                          <th>Module</th>
+                          <th>Xóa</th>
+                        </tr>`;
+    for (let i = 0; i < danhSachHocVien.length; i++) {
+      tableString += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${danhSachHocVien[i].ma}</td>
+                        <td>${danhSachHocVien[i].ten}</td>
+                        <td>${danhSachHocVien[i].lop}</td>
+                        <td>${danhSachHocVien[i].email}</td>
+                        <td>${danhSachHocVien[i].ngaySinh}</td>
+                        <td>${danhSachHocVien[i].module}</td>
+                        <td><button onclick="deleteHocVien('${danhSachHocVien[i].ma}')">Xóa</button></td>
+                      </tr>`;
+    }
+    tableString += `</table>`;
+    document.getElementById("display").innerHTML = tableString;
+  }
+
+  function deleteHocVien(ma) {
+    if (confirm("Bạn có muốn xóa học viên này không?")) {
+      const index = danhSachHocVien.findIndex(hv => hv.ma === ma);
+      if (index !== -1) {
+        danhSachHocVien.splice(index, 1);
+        display();
+      }
+    }
+  }
+
+  function add() {
+    const ma = document.getElementById("ma").value;
+    const ten = document.getElementById("ten").value;
+    const lop = document.getElementById("lop").value;
+    const email = document.getElementById("email").value;
+    const ngaySinh = document.getElementById("ngaySinh").value;
+    const module = parseInt(document.getElementById("module").value);
+
+    if (ma && ten && lop && email && ngaySinh && module) {
+      const newHocVien = new HocVien(ma, ten, lop, email, ngaySinh, module);
+      const error = newHocVien.validate();
+      if (error) {
+        alert(error);
+        return;
+      }
+      if (danhSachHocVien.some(hv => hv.ma === ma)) {
+        alert("Mã học viên đã tồn tại!");
+        return;
+      }
+      danhSachHocVien.push(newHocVien);
+      resetForm();
+      display();
+    } else {
+      alert("Vui lòng nhập đủ thông tin!");
+    }
+  }
+
+  function showEditForm() {
+    const ma = prompt("Nhập mã học viên cần sửa:");
+    const hocVien = danhSachHocVien.find(hv => hv.ma === ma);
+    if (!hocVien) {
+      alert("Mã học viên không tồn tại!");
+      return;
+    }
+    document.getElementById("ma").value = hocVien.ma;
+    document.getElementById("ma").disabled = true;
+    document.getElementById("ten").value = hocVien.ten;
+    document.getElementById("lop").value = hocVien.lop;
+    document.getElementById("email").value = hocVien.email;
+    document.getElementById("ngaySinh").value = hocVien.ngaySinh;
+    document.getElementById("module").value = hocVien.module;
+
+    document.getElementById("formTitle").textContent = "Sửa thông tin học viên";
+    document.getElementById("addButton").style.display = "none";
+    document.getElementById("editButton").style.display = "none";
+    document.getElementById("cancelButton").style.display = "inline";
+    document.getElementById("addButton").outerHTML = `<button id="saveButton" onclick="saveEdit('${ma}')">Lưu</button>`;
+  }
+
+  function saveEdit(ma) {
+    const ten = document.getElementById("ten").value;
+    const lop = document.getElementById("lop").value;
+    const email = document.getElementById("email").value;
+    const ngaySinh = document.getElementById("ngaySinh").value;
+    const module = parseInt(document.getElementById("module").value);
+
+    if (ten && lop && email && ngaySinh && module) {
+      const updatedHocVien = new HocVien(ma, ten, lop, email, ngaySinh, module);
+      const error = updatedHocVien.validate();
+      if (error) {
+        alert(error);
+        return;
+      }
+      const index = danhSachHocVien.findIndex(hv => hv.ma === ma);
+      danhSachHocVien[index] = updatedHocVien;
+      resetForm();
+      display();
+    } else {
+      alert("Vui lòng nhập đủ thông tin!");
+    }
+  }
+
+  function resetForm() {
+    document.getElementById("ma").value = "";
+    document.getElementById("ma").disabled = false;
+    document.getElementById("ten").value = "";
+    document.getElementById("lop").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("ngaySinh").value = "";
+    document.getElementById("module").value = "";
+    document.getElementById("formTitle").textContent = "Thêm học viên mới";
+    document.getElementById("addButton").style.display = "inline";
+    document.getElementById("editButton").style.display = "inline";
+    document.getElementById("cancelButton").style.display = "none";
+    if (document.getElementById("saveButton")) {
+      document.getElementById("saveButton").outerHTML = `<button id="addButton" onclick="add()">Thêm</button>`;
+    }
+  }
+</script>
+</body>
+</html>

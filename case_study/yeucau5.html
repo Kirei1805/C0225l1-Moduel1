@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tính tổng số chẵn trong ma trận</title>
 </head>
 <body>
+<script>
+    function sumEvenMatrix() {
+        let m = parseInt(prompt("Mời nhập số hàng (m):"));
+        let n = parseInt(prompt("Mời nhập số cột (n):"));
+        let tong = 0;
 
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                let val = parseInt(prompt(`Nhập phần tử tại hàng ${i + 1}, cột ${j + 1}:`));
+                if (val % 2 === 0) {
+                    tong += val;
+                }
+            }
+        }
+
+        document.write("Tổng các số chẵn trong ma trận là: " + tong);
+    }
+
+    function prime (n){
+        if (n < 2 )  return false;
+        for (let i = 2; i <= Math.sqrt(n); i++){
+            if(n % i === 0) return false;
+        } return true;
+    }
+    function primeInMatrix() {
+        let x = parseInt(prompt("Mời nhập số hàng (m):"));
+        let y = parseInt(prompt("Mời nhập số cột (n):"));
+        let primes=[] ;
+        for (let i = 0; i < x; i++) {
+            for (let j = 0; j < y; j++) {
+                let values = parseInt(prompt(`Nhập phần tử tại hàng ${i+1}, Cột ${j + 1}:`));
+                if (prime(values)){
+                    primes.push(values);
+                }
+            }
+        }
+        document.write("Các số nguyên tố trong MATRIX là : " + primes);
+    }
+
+    let choice = prompt("Mời chọn bài mà bạn muốn biết ( Bài 1: tính Sum even matrix, Bài 2: Đếm các số nguyên tố): ");
+    switch (choice){
+        case "1": sumEvenMatrix(); break;
+        case "2": primeInMatrix(); break;
+        default: alert("Lựa chọn không hợp lệ ! ")
+    }
+</script>
 </body>
 </html>

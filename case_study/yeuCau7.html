@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Web Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            border: 1px solid #ccc; /* Đường viền bao quanh toàn bộ */
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-right: 1px solid #ccc; /* Đường viền giữa sidebar và content */
+        }
+        .sidebar h1 {
+            font-size: 49px;
+            margin: 0 0 70px;
+            text-align: center;
+            border-bottom: 1px solid #ccc; /* Đường viền dưới logo G */
+            padding-bottom: 10px;
+        }
+        .sidebar select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 50px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            border-left: 1px solid #ccc; /* Đường viền bên trái của content */
+        }
+        .content h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc; /* Đường viền dưới tiêu đề */
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <h1>G</h1>
+        <select>
+            <option>Bài tập 1</option>
+        </select>
+        <select>
+            <option>Bài tập 2</option>
+        </select>
+        <select>
+            <option>Bài tập 3</option>
+        </select>
+        <select>
+            <option>Bài tập 4</option>
+        </select>
+        <select>
+            <option>Bài tập 5</option>
+        </select>
+
+    </div>
+    <div class="content">
+        <h2 style="" >Hệ thống quản lý bài tập Casestudy module 1</h2>
+    </div>
+</div>
+
+</body>
+</html>
