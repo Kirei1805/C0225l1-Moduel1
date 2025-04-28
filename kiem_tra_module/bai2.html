@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function roundGrade(grade) {
+    if (grade <= 50) {
+      return grade;
+    }
+    let nextMultipleOfFive = Math.ceil(grade / 5) * 5;
+    if ((nextMultipleOfFive - grade) < 3) {
+      return nextMultipleOfFive;
+    }
+    return grade;
+  }
+  let grade = parseInt(prompt("Nhập điểm của học sinh (từ 0 đến 100):"));
+  if (!isNaN(grade) && grade >= 0 && grade <= 100) {
+    let roundedGrade = roundGrade(grade);
+    alert("Điểm đã làm tròn: " + roundedGrade);
+  } else {
+    alert(" Điểm không trong vùng từ 0 đến 100 vui lòng nhập lại ! ");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function findPairs() {
+    let arr = prompt("Nhập mảng số nguyên dương (các phần tử cách nhau bằng dấu phẩy): ").split(',').map(Number);
+    let k = parseInt(prompt("Nhập số nguyên dương k:"));
+    if (arr.length > 50) {
+      alert("Mảng không được quá 50 phần tử.");
+      return;
+    }
+    if (k <= 0 || isNaN(k)) {
+      alert("Vui lòng nhập một số nguyên dương cho k.");
+      return;
+    }
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        if ((arr[i] + arr[j]) % k === 0) {
+          count++;
+        }
+      }
+    }
+    alert(`Số lượng cặp số có tổng chia hết cho ${k} là: ${count}`);
+  }
+  findPairs();
+</script>
+
+</body>
+</html>

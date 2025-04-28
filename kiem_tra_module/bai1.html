@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  function findAndSum(arr) {
+    if (arr.length > 20) {
+      alert("Mảng không được quá 20 phần tử!");
+      return;
+    }
+    let sum = 0;
+    let multiples = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+        multiples.push(arr[i]);
+        sum += arr[i];
+      }
+    }
+    alert("Mảng nhập vào: " + arr.join(", ") + "\n" + "Các số là bội chung của 3 và 5: " + multiples.join(", ") + "\n" + "Tổng của các số đó là: " + sum);
+  }
+
+  function processArray() {
+    let arr = prompt("Nhập các phần tử mảng và ngăn cách nhau bằng dấu phẩy:").split(',').map(Number);
+    if (arr) {
+      if (arr.some(isNaN)) {
+        alert("Vui lòng nhập các số hợp lệ!");
+        return;
+      }
+      findAndSum(arr);
+    }
+  }
+
+  processArray();
+</script>
+
+</body>
+</html>

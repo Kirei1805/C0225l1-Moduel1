@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý khách hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      margin-bottom: 20px;
+    }
+    .customer-list {
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Quản lý khách hàng</h1>
+
+<div class="container">
+  <h2>Thêm khách hàng mới</h2>
+  <label for="customerId">Mã khách hàng:</label>
+  <input type="number" id="customerId" placeholder="Nhập mã khách hàng"><br><br>
+
+  <label for="customerName">Tên khách hàng:</label>
+  <input type="text" id="customerName" placeholder="Nhập tên khách hàng"><br><br>
+
+  <label for="phoneNumber">Số điện thoại:</label>
+  <input type="number" id="phoneNumber" placeholder="Nhập số điện thoại"><br><br>
+
+  <label for="address">Địa chỉ:</label>
+  <input type="text" id="address" placeholder="Nhập địa chỉ"><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" placeholder="Nhập email"><br><br>
+
+  <button onclick="addCustomer()">Thêm khách hàng</button>
+</div>
+
+<div class="customer-list">
+  <h2>Danh sách khách hàng</h2>
+  <table id="customerTable">
+    <thead>
+    <tr>
+      <th>Mã khách hàng</th>
+      <th>Tên khách hàng</th>
+      <th>Số điện thoại</th>
+      <th>Địa chỉ</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<script>
+  let customers = [];
+  function Customer(id, name, phone, address, email) {
+    this.id = id;
+    this.name = name;
+    this.phone = phone;
+    this.address = address;
+    this.email = email;
+  }
+  function addCustomer() {
+    let id = document.getElementById("customerId").value;
+    let name = document.getElementById("customerName").value;
+    let phone = document.getElementById("phoneNumber").value;
+    let address = document.getElementById("address").value;
+    let email = document.getElementById("email").value;
+
+    if (id && name && phone && address && email) {
+      let newCustomer = new Customer(id, name, phone, address, email);
+      customers.push(newCustomer);
+      displayCustomers();
+      clearForm();
+    } else {
+      alert("Vui lòng điền đầy đủ thông tin!");
+    }
+  }
+  function displayCustomers() {
+    let tableBody = document.getElementById("customerTable").getElementsByTagName("tbody")[0];
+    tableBody.innerHTML = "";
+    customers.forEach(function(customer) {
+      let row = tableBody.insertRow();
+      row.insertCell(0).innerText = customer.id;
+      row.insertCell(1).innerText = customer.name;
+      row.insertCell(2).innerText = customer.phone;
+      row.insertCell(3).innerText = customer.address;
+      row.insertCell(4).innerText = customer.email;
+    });
+  }
+  function clearForm() {
+    document.getElementById("customerId").value = "";
+    document.getElementById("customerName").value = "";
+    document.getElementById("phoneNumber").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("email").value = "";
+  }
+</script>
+</body>
+</html>
